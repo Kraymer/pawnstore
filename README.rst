@@ -1,11 +1,12 @@
 pawnstore ♟
 ===========
 
-**\pɔːnstɔʁ\**
+    **/pɔːnstɔʁ/** :
  
     | chess library to import your PGN games and run queries on them
+    |
     | Portmanteau word from : 
-    | 1. *pawns*: the soul of chess 
+    | 1. *pawns*: defined by Philidor as *"The soul of chess"* 
     | 2. *datastore*: repository for persistently storing and managing collections of data
 
 Example
