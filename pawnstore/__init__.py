@@ -15,6 +15,6 @@ def pawnstore(chesscom=None, lichess=None, full=False):
         CHESSCOM.sync(chesscom, full)
 
     if lichess:
-        LICHESS.sync(lichess)
+        LICHESS.sync(lichess, full)
 
     return Game.select().order_by(Game.timestamp)
