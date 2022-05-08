@@ -9,7 +9,7 @@ import datetime as dt
 
 from pawnstore.services import ChessPlatform, parse_game
 
-LICHESS_API = berserk.Client(berserk.TokenSession(os.environ["LICHESS_API_TOKEN"]))
+LICHESS_API = berserk.Client(berserk.TokenSession(os.environ.get("LICHESS_API_TOKEN")))
 
 
 class LichessError(Exception):
