@@ -92,7 +92,9 @@ class Chesscom(ChessPlatform):
         res["opp_name"] = hdr[opposite(color)]
 
         res["opp_elo"] = hdr[opposite(color) + "Elo"]
-        res["time_control"] = self.convert["TimeControl"][hdr["TimeControl"]]
+        res["time_control"] = self.convert["TimeControl"].get(
+            hdr["TimeControl"], hdr["TimeControl"]
+        )
         res["user"] = user
         res["accuracy"] = self._user_accuracy(json, color)
         res["moves"] = " ".join(moves)

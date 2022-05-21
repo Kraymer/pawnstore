@@ -42,7 +42,6 @@ class ChessPlatform:
                 try:
                     inserts += insert_game(game_dict)
                 except IntegrityError as e:
-                    print(e)
                     if not full:
                         break  # reached last insert game
         if inserts:
