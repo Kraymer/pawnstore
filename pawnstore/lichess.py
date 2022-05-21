@@ -43,13 +43,7 @@ class Lichess(ChessPlatform):
 
     def user_centric(self, json, user):
         """Return game as a dict with fields adopting a user POV."""
-        game = LICHESS_API.games.export(
-            json["id"],
-            clocks=False,
-            as_pgn=False,
-            # as_pgn=False, moves=True, evals=True, opening=True,
-            literate=True,
-        )
+        game = json
         if "opening" not in json:
             return
         res = {}
