@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.1 (2022-05-22)
+### Fix
+* Description on pypi ([`774a23d`](https://github.com/Kraymer/pawnstore/commit/774a23d9f9f09d983f64d64f9ee5f2dc68700543))
+* Topic classifier ([`7aee17a`](https://github.com/Kraymer/pawnstore/commit/7aee17a4ce8b1ae07e750190b8c97eaebdc4334c))
+
 ## v0.1.0 (2022-05-22)
 ### Feature
 * Add setup.py ([`2371676`](https://github.com/Kraymer/pawnstore/commit/23716764c852c9086a9778e4160c078c96662782))
