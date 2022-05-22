@@ -57,7 +57,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Environment :: Console",
-        "Games/Entertainment :: Board Games",
+        "Topic :: Games/Entertainment :: Board Games",
     ],
     keywords="chess",
 )
