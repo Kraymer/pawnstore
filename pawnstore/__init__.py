@@ -11,10 +11,18 @@ logger = logging.getLogger(__name__)
 
 
 def pawnstore(chesscom=None, lichess=None, full=False):
+
     if chesscom:
         CHESSCOM.sync(chesscom, full)
 
     if lichess:
         LICHESS.sync(lichess, full)
 
-    return Game.select().order_by(Game.timestamp)
+    return (
+        Game.select()
+        .where(
+            ((Game.user == chesscom) & (Game.website == CHESSCOM.name))
+            | ((Game.user == lichess) & (Game.website == LICHESS.name))
+        )
+        .order_by(Game.timestamp)
+    )
