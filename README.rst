@@ -14,7 +14,7 @@ Features
 
 - centralized access to your online and OTB chess games
 - chess.com and lichess.org importers
-- non symetric user-centric data representation to facilitate extraction of your own statistics
+- user-centric data representation to facilitate extraction of your own statistics
 
 Example
 -------
