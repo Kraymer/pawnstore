@@ -30,10 +30,10 @@ def read_rsrc(filename, pypi_compat=False):
         return "".join(lines).strip()
 
 
-# Deploy: python3 setup.py sdist bdist_wheel; twine upload --verbose dist/*
 setup(
     name=PKG_NAME,
-    version=version,
+    version=VERSION,
+    description=DESCRIPTION,
     description="chess library to import your PGN games in a local database",
     long_description=read_rsrc("README.md", True),
     long_description_content_type="text/markdown",
