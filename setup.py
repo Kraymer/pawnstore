@@ -8,35 +8,35 @@ import os
 import re
 from setuptools import setup
 
-
 PKG_NAME = "pawnstore"
-DIRPATH = os.path.dirname(__file__)
+
+# Extract module docstring and version from package root __init__.py
+with codecs.open("{}/__init__.py".format(PKG_NAME), encoding="utf-8") as fd:
+    metadata = fd.read()
+    VERSION = re.search(
+        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', metadata, re.MULTILINE
+    ).group(1)
+    DESCRIPTION = metadata.split('"""')[1].strip()
 
 
 def read_rsrc(filename, pypi_compat=False):
-    """Return content of filename.
-    If pypi_compat is True, remove emojis and anything preceding
-    `.. pypi` comment if present.
+    """Return content of given text file.
+    If pypi_compat is True then remove lines that contain the string "nopypi"
     """
-    with codecs.open(os.path.join(DIRPATH, filename), encoding="utf-8") as _file:
-        data = _file.read().strip()
-        if pypi_compat or filename == "README.rst":
-            if ".. pypi" in data:
-                data = re.sub(r":(\w+\\?)+:", "", data[data.find(".. pypi") :] or data)
-    return data
+    with codecs.open(filename, encoding="utf-8") as _file:
+        lines = _file.readlines()
+        if pypi_compat:
+            lines = [x for x in lines if "[nopypi]" not in x]
+        return "".join(lines).strip()
 
-
-with codecs.open("{}/__init__.py".format(PKG_NAME), encoding="utf-8") as fd:
-    version = re.search(
-        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE
-    ).group(1)
 
 # Deploy: python3 setup.py sdist bdist_wheel; twine upload --verbose dist/*
 setup(
     name=PKG_NAME,
     version=version,
     description="chess library to import your PGN games in a local database",
-    long_description=read_rsrc("README.rst"),
+    long_description=read_rsrc("README.md", True),
+    long_description_content_type="text/markdown",
     author="Fabrice Laporte",
     author_email="kraymer@gmail.com",
     url="https://github.com/KraYmer/pawnstore",
