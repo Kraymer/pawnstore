@@ -1,3 +1,10 @@
+[![nopypi](http://github.com/kraymer/pawnstore/workflows/build/badge.svg)](https://github.com/Kraymer/pawnstore/actions/workflows/python-build.yml)
+[![nopypi](https://codecov.io/gh/Kraymer/pawnstore/branch/main/graph/badge.svg?token=EPMJ5EZGIK)](https://codecov.io/gh/Kraymer/pawnstore)
+[![nopypi](http://img.shields.io/pypi/v/pawnstore.svg)](https://pypi.python.org/pypi/pawnstore)
+[![](https://pepy.tech/badge/pawnstore)](https://pepy.tech/project/pawnstore)
+[![nopypi](https://img.shields.io/badge/releases-atom-orange.svg)](https://github.com/Kraymer/pawnstore/releases.atom)
+
+
 # pawnstore ♟
 
 > **/pɔːnstɔʁ/** :
