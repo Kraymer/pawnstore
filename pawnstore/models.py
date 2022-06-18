@@ -3,6 +3,7 @@
 
 import datetime as dt
 import confuse
+import sys
 
 from os import path
 from peewee import (
@@ -19,10 +20,16 @@ from peewee import (
 DB = None
 
 
-def database():
+def database_path():
     config = confuse.Configuration("pawnstore", __name__)
+    dbname = "pawnstore.sqlite"
+    if "pytest" in sys.modules:
+        dbname = "tests.sqlite"
+    return path.join(config.config_dir(), dbname)
 
-    return SqliteDatabase(path.join(config.config_dir(), "pawnstore.sqlite"))
+
+def database():
+    return SqliteDatabase(database_path())
 
 
 class Game(Model):
