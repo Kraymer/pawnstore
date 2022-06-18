@@ -21,10 +21,7 @@ Example
 
 ::
 
-    import pawnstore as ps
-    from pawnstore.models import Panwstore
-
-    store = Pawnstore(chesscom=("neTinquietePas", "xxx"),
-        lichess=("kraymer", "xxx"))
-    store.filter(side=ps.side.WHITE, eco=ps.eco.C44, result=ps.result.WIN).order_by("date").limit(3)
-
+    from pawnstore import pawnstore
+    
+    store = pawnstore(chesscom="neTinquietePas")
+    store.filter(white=True, eco="B10", result="W").limit(3)
