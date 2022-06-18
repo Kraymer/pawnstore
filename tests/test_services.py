@@ -1,6 +1,7 @@
 from copy import deepcopy
 import datetime as dt
 import os
+import unittest
 
 from pawnstore import models
 from pawnstore.services import insert_game
@@ -26,12 +27,7 @@ GAME_DATA = {
 }
 
 
-class TestServices:
-    @classmethod
-    def teardown_class(cls):
-        """Remove tests.sqlite database"""
-        os.remove(models.database_path())
-
+class TestServices(unittest.TestCase):
     def test_insert_game_no_data(self):
         res = insert_game(None)
         assert res == False

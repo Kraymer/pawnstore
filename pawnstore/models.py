@@ -23,12 +23,12 @@ DB = None
 def database_path():
     config = confuse.Configuration("pawnstore", __name__)
     dbname = "pawnstore.sqlite"
-    if "pytest" in sys.modules:
-        dbname = "tests.sqlite"
     return path.join(config.config_dir(), dbname)
 
 
 def database():
+    if "pytest" in sys.modules:
+        return SqliteDatabase(":memory:")
     return SqliteDatabase(database_path())
 
 
