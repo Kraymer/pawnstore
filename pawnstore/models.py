@@ -15,7 +15,7 @@ from peewee import (
     DateTimeField,
     FloatField,
 )
-
+from playhouse.shortcuts import model_to_dict
 
 DB = None
 
@@ -62,6 +62,9 @@ class Game(Model):
             # create a unique on from/to/date
             (("slug", "website", "user"), True),
         )
+
+    def as_dict(self):
+        return model_to_dict(self)
 
     def __str__(self):
         if self.white:
