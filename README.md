@@ -34,4 +34,5 @@
     neTinquietePas x rms1952
     neTinquietePas x AnselmoBarrena
     neTinquietePas x samisamuel
-
+    >>> print(game.as_dict().keys())
+    dict_keys(['id', 'slug', 'analysis', 'eco', 'eco_name', 'elo', 'moves', 'num_moves', 'opp_elo', 'opp_name', 'pgn', 'result', 'termination', 'speed', 'term', 'timestamp', 'user', 'accuracy', 'time_control', 'website', 'white'])
