@@ -74,7 +74,6 @@ class Chesscom(ChessPlatform):
 
     def user_centric(self, json, user):
         """Return game as a dict with fields adopting a user POV."""
-
         res = {
             "slug": json.get("url", None),
             "pgn": json.get("pgn", None),
