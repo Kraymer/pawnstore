@@ -57,4 +57,9 @@ GAME_CHESSCOM_USER_CENTRIC_DATA = {
 class TestChesscom(unittest.TestCase):
     def test_user_centric(self):
         res = CHESSCOM.user_centric(GAME_CHESSCOM_DATA, "NeTinquietePas")
+
+        # locale timezone can alter the data
+        res.pop("timestamp")
+        GAME_CHESSCOM_USER_CENTRIC_DATA.pop("timestamp")
+
         assert res == GAME_CHESSCOM_USER_CENTRIC_DATA
