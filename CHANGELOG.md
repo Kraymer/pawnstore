@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2022-09-05)
+### Feature
+* Increase import limit tenfold ([`6a2aeed`](https://github.com/Kraymer/pawnstore/commit/6a2aeedeae3b9538d8624d49a0c437dc9efd9bb8))
+* Add Game.as_dict() method ([`b789150`](https://github.com/Kraymer/pawnstore/commit/b7891504841a9b579c8c87b64c51e4110d9e0203))
+* Add codecov and build workflows ([`95c18d1`](https://github.com/Kraymer/pawnstore/commit/95c18d18e5cae693d2f86923a07c351143f40c93))
+
+### Fix
+* Catch & skip error when importing non games ([`1addea2`](https://github.com/Kraymer/pawnstore/commit/1addea230ed14cbf2be15079063286f55d0341a8))
+* **tests:** Remove timestamp from user centric data ([#5](https://github.com/Kraymer/pawnstore/issues/5)) ([`eb054d5`](https://github.com/Kraymer/pawnstore/commit/eb054d50601bf452dabfd8e5d73447d46c316aad))
+
 ## v0.1.1 (2022-05-22)
 ### Fix
 * Description on pypi ([`774a23d`](https://github.com/Kraymer/pawnstore/commit/774a23d9f9f09d983f64d64f9ee5f2dc68700543))
