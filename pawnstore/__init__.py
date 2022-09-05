@@ -1,10 +1,11 @@
+"""Chess library to import your PGN games in a local database"""
+
 import logging
 from .models import Game
 
 from pawnstore.chesscom import CHESSCOM
 from pawnstore.lichess import LICHESS
 
-__app__ = "pawnstore"
 __version__ = "0.1.1"
 
 logger = logging.getLogger(__name__)
