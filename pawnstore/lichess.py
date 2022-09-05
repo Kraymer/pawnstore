@@ -72,21 +72,21 @@ class Lichess(ChessPlatform):
                 color, opp_color = "white", "black"
             else:
                 color, opp_color = "black", "white"
+
+            res["white"] = color == "white"
+            res["elo"] = json["players"][color]["rating"]
+            res["opp_name"] = json["players"][opp_color]["user"]["id"]
+            res["opp_elo"] = json["players"][opp_color]["rating"]
+            res["website"] = self.name
+            res["user"] = user
+            res["result"] = self._user_result(json, color)
+            res["termination"] = self.convert["Termination"].get(json["status"])
+            res["time_control"] = "{total}+{incr}".format(
+                total=int(json["clock"]["initial"] / 60),
+                incr=json["clock"]["increment"],
+            )
         except KeyError:  # game against AI
             return
-
-        res["white"] = color == "white"
-        res["elo"] = json["players"][color]["rating"]
-        res["opp_name"] = json["players"][opp_color]["user"]["id"]
-        res["opp_elo"] = json["players"][opp_color]["rating"]
-        res["website"] = self.name
-        res["user"] = user
-        res["result"] = self._user_result(json, color)
-        res["termination"] = self.convert["Termination"].get(json["status"])
-        res["time_control"] = "{total}+{incr}".format(
-            total=int(json["clock"]["initial"] / 60), incr=json["clock"]["increment"]
-        )
-
         return res
 
 
