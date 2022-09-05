@@ -36,7 +36,7 @@ class ChessPlatform:
     def sync(self, user, full):
         inserts = 0
 
-        for game in self.export_by_player(user, 100):
+        for game in self.export_by_player(user, 1000):
             game_dict = self.user_centric(game, user)
             if game_dict:
                 try:
