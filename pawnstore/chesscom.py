@@ -7,6 +7,7 @@ import datetime as dt
 from pawnstore.services import ChessPlatform, parse_game, insert_game
 
 ARCHIVES_URL = "https://api.chess.com/pub/player/{}/games/archives"
+HDR = {"User-Agent": "pawnstore", "From": "kraymer@gmail.com"}
 
 
 def opposite(color):
@@ -26,17 +27,17 @@ class Chesscom(ChessPlatform):
 
         idx = 0
         try:
-            res = requests.get(ARCHIVES_URL.format(username)).json()
+            res = requests.get(ARCHIVES_URL.format(username), headers=HDR).json()
+
         except requests.exceptions.ConnectionError as e:
             print("Connection error: skipping {} import".format(self.name))
             return
         if res.get("code") == 0:
             raise ChesscomError(res["message"])
-
         archives = res["archives"]
         order = -1 if desc else 1
         for monthly_url in archives[::order]:
-            res = requests.get(monthly_url).json()
+            res = requests.get(monthly_url, headers=HDR).json()
             games = res["games"][::-1]
 
             for game in games:
