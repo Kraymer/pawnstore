@@ -3,8 +3,6 @@
 import logging
 from .models import Game
 
-from pawnstore.chesscom import CHESSCOM
-from pawnstore.lichess import LICHESS
 
 __version__ = "0.2.0"
 
@@ -12,6 +10,8 @@ logger = logging.getLogger(__name__)
 
 
 def pawnstore(chesscom=None, lichess=None, full=False):
+    from pawnstore.chesscom import CHESSCOM
+    from pawnstore.lichess import LICHESS
 
     if chesscom:
         CHESSCOM.sync(chesscom, full)
